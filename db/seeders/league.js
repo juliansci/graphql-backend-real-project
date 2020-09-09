@@ -1,9 +1,14 @@
+const ObjectID = require('bson').ObjectID;
+
 module.exports = {
   'model': 'League',
   'documents': [
     {
-      '_id': '5f56e9f09cf89f290b8a7698',
-      'name': 'Nueva league',
+      id: new ObjectID(),
+      name: 'Liga Argentina',
+      logo: 'sarasa',
+      country: 'Argentina',
+      division: 1,
     }
   ]
 };

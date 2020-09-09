@@ -7,6 +7,7 @@ const schema = gql`
     name: String!
     image: String
     nationality: String
+    team: Team
   }
 
   type League {
@@ -29,6 +30,7 @@ const schema = gql`
     localGoals: Int
     visitingGoals: Int
     result: MatchResult
+    date: String
   }
 
   type Team {
@@ -42,6 +44,7 @@ const schema = gql`
 
   type Query {
     getTeams: [Team]
+    getPlayers: [Player]
   }
 `;
 

@@ -14,7 +14,7 @@ const dataSeeds = [
   seederLeague,
   seederPlayer
 ];
-
+console.log(seederLeague);
 const modelsFolder = './models'
 
 const models = [

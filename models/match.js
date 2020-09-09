@@ -25,6 +25,9 @@ var matchSchema = new Schema({
     type: String,
     enum: MATCH_RESULTS,
     required: true
+  },
+  date: {
+    type: Date
   }
 });
 

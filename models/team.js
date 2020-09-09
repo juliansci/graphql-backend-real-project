@@ -6,9 +6,7 @@ var teamSchema = new Schema({
     required: true
   },
   logo: String,
-  league: { type: Schema.Types.ObjectId, ref: 'League' },
-  players: [{ type: Schema.Types.ObjectId, ref: 'Player' }],
-  matches: [{ type: Schema.Types.ObjectId, ref: 'Match' }],
+  league: { type: Schema.Types.ObjectId, ref: 'League' }
 });
 
 module.exports = model('Team', teamSchema);

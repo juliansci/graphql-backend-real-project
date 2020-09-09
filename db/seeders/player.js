@@ -1,11 +1,15 @@
+const ObjectID = require('bson').ObjectID;
+
 module.exports = {
   'model': 'Player',
   'documents': [
     {
-      'name': 'Julian Sco',
+      id: new ObjectID(),
+      name: 'Julian Sco'
     },
     {
-      'name': 'Pedro Sarasa',
+      id: new ObjectID(),
+      name: 'Pedro Sarasa'
     }
   ]
 };

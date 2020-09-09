@@ -1,13 +1,14 @@
+const ObjectID = require('bson').ObjectID;
+
 module.exports = {
   'model': 'Match',
   'documents': [
     {
-      'id': '5f56f275abe4a37ecc100b3b',
-      'local': { '_id': '5f56f257eb8bc88754ce668a' },
-      'visiting': { '_id': '5f56f267ddb7688d80f7db2c' },
-      'localGoals': 2,
-      'visitingGoals': 2,
-      'result': 'TIE'
+      id: new ObjectID(),
+      localGoals: 2,
+      visitingGoals: 2,
+      result: 'TIE',
+      date: '2020-09-08T01:10:43.115Z'
     }
   ]
 };

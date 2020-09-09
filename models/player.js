@@ -6,7 +6,11 @@ var playerSchema = new Schema({
     required: true
   },
   image: String,
-  nationality: String
+  nationality: String,
+  team: {
+    type: Schema.Types.ObjectId,
+    ref: 'Team',
+  }
 });
 
 module.exports = model('Player', playerSchema);
