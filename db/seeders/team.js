@@ -1,38 +1,133 @@
-const casual = require('casual');
 const ObjectID = require('bson').ObjectID;
-const rando = require('@nastyox/rando.js').rando;
-const { generateEntities, getEntitiesId } = require('./util');
 
-const leagueIds = [];
-
-const quantityEntities = 40;
-const teamSuffixes = ['Team', 'United', 'A.C'];
-
-const capitalizeFirstLetter = (string) => {
-  return string.charAt(0).toUpperCase() + string.slice(1);
-}
-
-const entityGenerator = () => {
-  const leagueId = leagueIds[rando(leagueIds.length - 1)];
-  return {
+const spainLeagueId = "5f5ff67d508f0bd0067a71cf";
+const entities = [
+  {
     id: new ObjectID(),
-    name: `${capitalizeFirstLetter(casual.word)} ${teamSuffixes[rando(0, 2)]}`,
-    logo: 'https://image.freepik.com/free-vector/soccer-logo-sport-logo-football-logo_7085-195.jpg',
-    league: leagueId
-  };
-}
-const entities = generateEntities(quantityEntities, entityGenerator);
-const entitiesIds = getEntitiesId(entities);
-
-
-module.exports = Object.assign(module.exports, {
-  getEntitiesIds: () => entitiesIds,
-  getEntities: () => {
-    return {
-      'model': 'Team',
-      'documents': entities
-    }
+    name: "RCD Mallorca",
+    logo: "logo",
+    league: spainLeagueId
+  },
+  {
+    id: new ObjectID(),
+    name: "RCD Espanyol",
+    logo: "logo",
+    league: spainLeagueId
+  },
+  {
+    id: new ObjectID(),
+    name: "Sevilla FC",
+    logo: "logo",
+    league: spainLeagueId
+  },
+  {
+    id: new ObjectID(),
+    "name": "Getafe CF",
+    logo: "logo",
+    league: spainLeagueId
+  },
+  {
+    id: new ObjectID(),
+    name: "RC Celta Vigo",
+    logo: "logo",
+    league: spainLeagueId
+  },
+  {
+    id: new ObjectID(),
+    name: "Levante UD",
+    logo: "logo",
+    league: spainLeagueId
+  },
+  {
+    id: new ObjectID(),
+    name: "Atlético Madrid",
+    logo: "logo",
+    league: spainLeagueId
+  },
+  {
+    id: new ObjectID(),
+    name: "Real Madrid",
+    logo: "logo",
+    league: spainLeagueId
+  },
+  {
+    id: new ObjectID(),
+    name: "Valencia CF",
+    logo: "logo",
+    league: spainLeagueId
+  },
+  {
+    id: new ObjectID(),
+    name: "FC Barcelona",
+    logo: "logo",
+    league: spainLeagueId
+  },
+  {
+    id: new ObjectID(),
+    name: "Real Sociedad",
+    logo: "logo",
+    league: spainLeagueId
+  },
+  {
+    id: new ObjectID(),
+    name: "Athletic Club Bilbao",
+    logo: "logo",
+    league: spainLeagueId
+  },
+  {
+    id: new ObjectID(),
+    name: "Real Betis",
+    logo: "logo",
+    league: spainLeagueId
+  },
+  {
+    id: new ObjectID(),
+    name: "CA Osasuna",
+    logo: "logo",
+    league: spainLeagueId
+  },
+  {
+    id: new ObjectID(),
+    name: "Granada CF",
+    logo: "logo",
+    league: spainLeagueId
+  },
+  {
+    id: new ObjectID(),
+    name: "Real Valladolid CF",
+    logo: "logo",
+    league: spainLeagueId
+  },
+  {
+    id: new ObjectID(),
+    name: "Villarreal CF",
+    logo: "logo",
+    league: spainLeagueId
+  },
+  {
+    id: new ObjectID(),
+    name: "Deportivo Alavés",
+    logo: "logo",
+    league: spainLeagueId
+  },
+  {
+    id: new ObjectID(),
+    name: "SD Eibar",
+    logo: "logo",
+    league: spainLeagueId
+  },
+  {
+    id: new ObjectID(),
+    name: "CD Leganés",
+    logo: "logo",
+    league: spainLeagueId
   }
-});
+];
+
+module.exports = {
+  'model': 'Team',
+  'documents': entities
+};
+
 
 

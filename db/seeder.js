@@ -9,12 +9,11 @@ const DB_HOST = process.env.DB_HOST;
 const DB_NAME = process.env.DB_NAME;
 
 const dataSeeds = [
-  seederTeam.getEntities(),
-  seederMatch.getEntities(),
-  seederLeague.getEntities(),
-  seederPlayer.getEntities()
+  seederTeam,
+  seederMatch,
+  seederLeague,
+  seederPlayer
 ];
-console.log(seederLeague);
 const modelsFolder = './models'
 
 const models = [

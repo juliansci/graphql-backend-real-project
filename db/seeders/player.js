@@ -1,31 +1,30 @@
 const casual = require('casual');
 const rando = require('@nastyox/rando.js').rando;
 const ObjectID = require('bson').ObjectID;
-const { generateEntities, getEntitiesId } = require('./util');
-const teamIds = require('./team').getEntitiesIds;
+const teams = require('./team').documents;
 
-const quantityEntities = 120;
+const randomImgUrl = 'https://randomuser.me/api/portraits/men/';
+const quantityEntities = teams.length * 20;
 const entityGenerator = () => {
-  const randomTeam = teamIds[rando(teamIds.length)];
+  const randomTeam = teams[rando(teams.length - 1)];
   return {
     id: new ObjectID(),
     name: casual.full_name,
     nationality: casual.country,
-    image: 'https://image.freepik.com/free-vector/soccer-logo-sport-logo-football-logo_7085-195.jpg',
-    team: randomTeam
+    image: `${randomImgUrl}${rando(99)}.jpg`,
+    team: randomTeam.id
   };
 }
-const entities = generateEntities(quantityEntities, entityGenerator)
-const entitiesIds = getEntitiesId(entities);
+const getEntities = () => {
+  const entities = [];
+  for (let i = 0; i < quantityEntities; i++) {
+    entities.push(entityGenerator());
+  }
+  return entities;
+}
 
 module.exports = {
-  getEntitiesIds: () => entitiesIds,
-  getEntities: () => {
-    return {
-      'model': 'Player',
-      'documents': entities
-    }
-  }
+  'model': 'Player',
+  'documents': getEntities()
 };
-
 
