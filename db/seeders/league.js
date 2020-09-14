@@ -1,21 +1,26 @@
 const casual = require('casual');
 const ObjectID = require('bson').ObjectID;
+const rando = require('@nastyox/rando.js').rando;
 const { generateEntities, getEntitiesId } = require('./util');
+console.log(require('./team'));
+const teamIds = require('./team').getEntitiesIds();
 
-const quantityEntities = 3;
-const entityGenerator = () => {
+const quantityEntities = 2;
+const teamsForLeague = 20;
+const entityGenerator = (index) => {
   return {
     id: new ObjectID(),
-    name: casual.word,
+    name: `${casual.word} League`,
     logo: 'https://image.freepik.com/free-vector/soccer-logo-sport-logo-football-logo_7085-195.jpg',
     country: casual.country,
-    division: casual.integer(from = 1, to = 3),
+    division: rando(1, 2),
+    teams: teamIds.slice(index * teamsForLeague, (index + 1) * teamsForLeague)
   };
 }
 const entities = generateEntities(quantityEntities, entityGenerator)
 const entitiesIds = getEntitiesId(entities);
 
-module.exports = {
+module.exports = Object.assign(module.exports,{
   getEntitiesIds: () => entitiesIds,
   getEntities: () => {
     return {
@@ -23,4 +28,4 @@ module.exports = {
       'documents': entities
     }
   }
-};
+});

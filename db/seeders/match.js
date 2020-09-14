@@ -1,13 +1,23 @@
 const casual = require('casual');
+const randoJS = require('@nastyox/rando.js');
+const rando = randoJS.rando;
+const randoSequence = randoJS.randoSequence;
 const ObjectID = require('bson').ObjectID;
 const { generateEntities, getEntitiesId } = require('./util');
-const teamIds = require('./team').getEntitiesIds();
+const leagues = require('./league').getEntities().documents;
+
+
 
 const results = ['LOCAL_WIN', 'VISITING_WIN', 'TIE'];
 const quantityEntities = 40;
 const entityGenerator = () => {
-  const localGoals = casual.integer(from = 0, to = 7);
-  const visitingGoals = casual.integer(from = 0, to = 7);
+  const randomLeague = leagues[rando(leagues.length - 1)];
+  const leagueTeams = randomLeague.teams;
+  const randomTeamsIndex = randoSequence(leagueTeams.length - 1);
+  const randomLocalTeam = leagueTeams[randomTeamsIndex[0]];
+  const randomVisitantTeam = leagueTeams[randomTeamsIndex[1]];
+  const localGoals = rando(7);
+  const visitingGoals = rando(7);
   let result = results[2];
   if (localGoals > visitingGoals) {
     result = results[0];
@@ -17,8 +27,8 @@ const entityGenerator = () => {
   }
   return {
     id: new ObjectID(),
-    local: teamIds[1],
-    visiting: teamIds[0],
+    local: randomLocalTeam,
+    visiting: randomVisitantTeam,
     localGoals,
     visitingGoals,
     result,

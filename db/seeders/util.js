@@ -4,7 +4,7 @@ module.exports = {
   generateEntities: (quantity, entityGenerator) => {
     const entities = [];
     for (let i = 0; i < quantity; i++) {
-      entities.push(entityGenerator());
+      entities.push(entityGenerator(i));
     }
     return entities;
   },
