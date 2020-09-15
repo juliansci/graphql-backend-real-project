@@ -12,8 +12,8 @@ const entityGenerator = () => {
   const randomTeamsIndex = randoSequence(teams.length - 1);
   const randomLocalTeam = teams[randomTeamsIndex[0]];
   const randomVisitantTeam = teams[randomTeamsIndex[1]];
-  const localGoals = rando(7);
-  const visitingGoals = rando(7);
+  const localGoals = rando(5);
+  const visitingGoals = rando(5);
   let result = results[2];
   if (localGoals > visitingGoals) {
     result = results[0];
@@ -22,9 +22,9 @@ const entityGenerator = () => {
     result = results[1];
   }
   return {
-    id: new ObjectID(),
-    local: randomLocalTeam.id,
-    visiting: randomVisitantTeam.id,
+    _id: new ObjectID(),
+    local: randomLocalTeam._id,
+    visiting: randomVisitantTeam._id,
     localGoals,
     visitingGoals,
     result,

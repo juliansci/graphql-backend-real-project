@@ -12,7 +12,6 @@ const connect = async callback => {
     console.error(err);
   });
   db.once('open', () => {
-    console.log('DB Connection OK');
     callback();
   });
 }

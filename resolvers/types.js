@@ -9,16 +9,10 @@ module.exports = {
     matches: ({ _id }) => matchService.getByTeam(_id)
   },
   Player: {
-    team: (player) => {
-      return teamService.getById(player.team);
-    }
+    team: player => teamService.getById(player.team)
   },
   Match: {
-    local: (match) => {
-      return teamService.getById(match.local);
-    },
-    visiting: (match) => {
-      return teamService.getById(match.visiting);
-    }
+    local: match => teamService.getById(match.local),
+    visiting: match => teamService.getById(match.visiting)
   }
 }

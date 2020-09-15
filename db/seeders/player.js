@@ -7,13 +7,15 @@ const randomImgUrl = 'https://randomuser.me/api/portraits/men/';
 const quantityEntities = teams.length * 20;
 const entityGenerator = () => {
   const randomTeam = teams[rando(teams.length - 1)];
-  return {
-    id: new ObjectID(),
+
+  const player = {
+    _id: new ObjectID(),
     name: casual.full_name,
     nationality: casual.country,
     image: `${randomImgUrl}${rando(99)}.jpg`,
-    team: randomTeam.id
+    team: randomTeam._id
   };
+  return player;
 }
 const getEntities = () => {
   const entities = [];

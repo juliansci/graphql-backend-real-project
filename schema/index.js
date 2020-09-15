@@ -43,8 +43,14 @@ const schema = gql`
   }
 
   type Query {
+    "Get teams"
     getTeams: [Team]
+    "Get players"
     getPlayers: [Player]
+    "Get team by id"
+    getTeam(id: String): Team
+    "Get players by id"
+    getPlayer(id: String): Player
   }
 `;
 

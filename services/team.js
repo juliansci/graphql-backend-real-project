@@ -1,14 +1,18 @@
+const ObjectId = require('mongoose').Types.ObjectId;
 const Team = require('../models/team');
 
-const getById = id => {
-  return Team.findById(id);
+const getById = async id => {
+  if (!ObjectId.isValid(id)) {
+    return;
+  }
+  return Team.findById(id).exec();
 }
 
-const getTeams = () => {
+const getAll = () => {
   return Team.find();
 }
 
 module.exports = {
   getById,
-  getTeams
+  getAll
 }
