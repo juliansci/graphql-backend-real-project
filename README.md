@@ -14,9 +14,5 @@ In this project we will manage the next features:
 - Authentication and authorization
 - GraphQL security and performance
 
-## Blog
-This project was created with the idea of explain main concepts of GraphQL in my dev.to blog.
-If you are interested, here a link of the GraphQL series: [GraphQL Series](https://dev.to/juliansci/series/8790)
-
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
